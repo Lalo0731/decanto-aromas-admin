@@ -1,0 +1,90 @@
+@import "../base/index";
+.sidebar {
+    width: 220px;
+    background: $color-gris-oscuro;
+    color: $color-blanco;
+    // height: 100vh;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  
+    &__menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+  
+    &__item {
+      margin-bottom: 1rem;
+    }
+  
+    &__link {
+      color: $color-sombra-gris;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      
+  
+      &:hover {
+        background: $color-beige-dorado-oscuro;
+        color: $color-blanco;
+      }
+      &--active {
+        background: $color-gris-oscuro_3;
+        color: $color-blanco;
+        font-weight: bold;
+      }
+  
+      &--toggle {
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: left;
+      }
+    }
+  
+    .arrow {
+      transition: transform 0.3s;
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  
+    &__submenu {
+      list-style: none;
+      margin: 0.5rem 0 0 1rem;
+      padding: 0;
+  
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  
+    &__sublink {
+      color: $color-sombra-gris_2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.5rem;
+      display: block;
+      border-radius: 4px;
+  
+      &:hover {
+        background: $color-gris-oscuro_2;
+        color: $color-blanco;
+      }
+  
+      &--active {
+        background: $color-gris-oscuro_3;
+        color: $color-blanco;
+      }
+    }
+  }
+  

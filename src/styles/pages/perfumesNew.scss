@@ -1,0 +1,174 @@
+.perfumes-page {
+  max-width: 900px; // un poquito más ancho para que el grid respire
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #222;
+  }
+
+  .perfumes-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 columnas
+    gap: 1.5rem;
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      input,
+      textarea,
+      select {
+        padding: 0.7rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: #6c63ff;
+          outline: none;
+        }
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+    }
+
+    // Para que un campo ocupe las 2 columnas (ej. descripción)
+    .full-width {
+      grid-column: span 2;
+    }
+
+    &__actions {
+      grid-column: span 2; // botón ocupa todo el ancho
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .perfumes-btn {
+      background: #6c63ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #574ee0;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+}
+
+.perfumes-view {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #222;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+
+    th,
+    td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background: #f8f8f8;
+      font-weight: 600;
+    }
+
+    .status {
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+
+      &.active {
+        background: #e6f9f0;
+        color: #1a9b64;
+      }
+
+      &.inactive {
+        background: #fdeaea;
+        color: #c0392b;
+      }
+    }
+
+    .btn-action {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      transition: background 0.3s ease;
+
+      &.edit {
+        background: #6c63ff;
+        color: #fff;
+
+        &:hover {
+          background: #574ee0;
+        }
+      }
+
+      &.deactivate {
+        background: #ff6b6b;
+        color: #fff;
+
+        &:hover {
+          background: #e63939;
+        }
+      }
+
+      &.activate {
+        background: #27ae60;
+        color: #fff;
+
+        &:hover {
+          background: #1e8449;
+        }
+      }
+    }
+  }
+}
+

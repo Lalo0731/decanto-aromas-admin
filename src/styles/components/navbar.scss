@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 1rem 2rem;
+    color: #fff;
+  
+    &__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    &__links {
+      display: flex;
+      gap: 1rem;
+    }
+  
+    &__btn {
+      background: transparent;
+      border: 1px solid #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #fff;
+  
+      &:hover {
+        background: #444;
+      }
+    }
+  }
+  

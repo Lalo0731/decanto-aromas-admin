@@ -1,0 +1,58 @@
+decanto-aromas-admin/
+│── public/
+│   │   ├── images/
+│   │   │   ├── login.jpg
+│── src/
+│   ├── main.tsx
+│   ├── App.tsx
+│   │
+│   ├── assets/
+│   │   ├── Perfumes/
+│   │
+│   ├── layouts/
+│   │   └── AdminLayout.tsx
+│   │
+│   ├── components/
+│   │   ├── Navbar/
+│   │   │   ├── Navbar.tsx
+│   │   └── Sidebar/
+│   │       ├── Sidebar.tsx
+│   │
+│   ├── pages/
+│   │   ├── Login/
+│   │   │   ├── Login.tsx
+│   │   ├── Dashboard/
+│   │   │   ├── Dashboard.tsx
+│   │   └── Perfumes/
+│   │       ├── New/
+│   │       │   ├── Crear.tsx
+│   │       │   ├── Ver.tsx
+│   │       ├── Arabes/
+│   │       │   ├── Crear.tsx
+│   │       │   ├── Ver.tsx
+│   │       ├── Disenador/
+│   │       │   ├── Crear.tsx
+│   │       │   ├── Editar.tsx
+│   │       │   ├── Ver.tsx
+│   │
+│   ├── styles/
+│   │   ├── base/
+│   │   │   ├── variables.scss
+│   │   │   ├── mixins.scss
+│   │   │   ├── typography.scss
+│   │   │   └── index.scss  
+│   │   ├── components/       
+│   │   │   ├── navbar.scss
+│   │   │   └── sidebar.scss
+│   │   ├── pages/           
+│   │   │   ├── login.scss
+│   │   │   ├── dashboard.scss
+│   │   │   └── perfumesNew.scss
+│   │   └── globals.scss      
+│   │
+│   └── utils/
+│       └── api.ts  
+│       └── alerts.ts           
+│
+└── tsconfig.json
+
