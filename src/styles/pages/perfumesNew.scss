@@ -142,6 +142,10 @@
       margin-right: 0.5rem;
       transition: background 0.3s ease;
 
+      &:active{
+        transform: scale(0.95);
+      }
+
       &.edit {
         background: #6c63ff;
         color: #fff;
@@ -168,7 +172,98 @@
           background: #1e8449;
         }
       }
+
+      &.delete{
+        background: #c0392b;
+        color: #fff;
+        margin-top: 0.2rem;
+
+        &:hover{
+          background: #a93226;
+        }
+
+        &:focus {
+          outline: 2px solid #e74c3c;
+          outline-offset: 2px;
+        }
+      }
     }
   }
 }
 
+
+.perfumes-udpate {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .perfumes-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #444;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 0.7rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.2s ease-in;
+
+        &:focus {
+          border-color: #0077ff;
+          box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+        }
+      }
+
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: flex-end;
+
+      .perfumes-btn {
+        background-color: #0077ff;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: #005fcc;
+        }
+      }
+    }
+  }
+}

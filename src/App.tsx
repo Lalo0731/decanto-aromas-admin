@@ -5,6 +5,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import PrivateRoute from "./utils/PrivateRoute";
 import PerfumesNewCrear from "./pages/Perfumes/New/Crear";
 import PerfumesView from "./pages/Perfumes/New/Ver";
+import PerfumesEdit from "./pages/Perfumes/New/Editar";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/dashboard" element={ <Dashboard /> } />
         <Route path="/perfumes/new/crear" element={ <PerfumesNewCrear/> } />
         <Route path="/perfumes/new/ver" element={ <PerfumesView/> } />
+        <Route path="/perfumes/new/editar/:id" element={ <PerfumesEdit/> } />
             {/* Aquí podrás añadir más rutas protegidas, ejemplo: */}
             {/* <Route path="/perfumes" element={<Perfumes />} /> */}
         </Route>

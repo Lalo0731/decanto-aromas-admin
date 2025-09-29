@@ -27,6 +27,7 @@ decanto-aromas-admin/
 │   │       ├── New/
 │   │       │   ├── Crear.tsx
 │   │       │   ├── Ver.tsx
+│   │       │   ├── Editar.tsx
 │   │       ├── Arabes/
 │   │       │   ├── Crear.tsx
 │   │       │   ├── Ver.tsx
@@ -50,9 +51,14 @@ decanto-aromas-admin/
 │   │   │   └── perfumesNew.scss
 │   │   └── globals.scss      
 │   │
+│   │
+│   ├── services/
+│   │   ├── perfumes.ts
+│   │
 │   └── utils/
 │       └── api.ts  
 │       └── alerts.ts           
 │
+└── .env
 └── tsconfig.json
 

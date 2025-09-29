@@ -39,12 +39,12 @@ const CrearPerfumeNuevo: React.FC = () => {
         isNew: nuevo,
         available: disponible,
         accords: acordes
-          ? acordes.split(",").map((a) => a.trim()) 
+          ? acordes.split(",").map((a) => ({ accord: a.trim() })) 
           : [],
         specialFor: especialPara
-          ? especialPara.split(",").map((s) => s.trim()) 
+          ? especialPara.split(",").map((s) => ({ context: s.trim() })) 
           : [],
-        // ⚡ Acordes, especialPara e imágenes los manejaremos en otra tabla/endpoints
+        images: []
       };
 
       const response = await createPerfume(payload);
@@ -186,6 +186,7 @@ const CrearPerfumeNuevo: React.FC = () => {
           </select>
         </div>
 
+        {/* Acordes principales */}
         <div className="perfumes-form__group full-width">
           <label>Acordes principales</label>
           <textarea
@@ -194,7 +195,8 @@ const CrearPerfumeNuevo: React.FC = () => {
             placeholder="Ejemplo: Amaderado, Floral, Dulce..."
           />
         </div>
-
+        
+        {/* Especial para */}
         <div className="perfumes-form__group full-width">
           <label>Especial para</label>
           <textarea
@@ -204,6 +206,7 @@ const CrearPerfumeNuevo: React.FC = () => {
           />
         </div>
 
+        {/* Subir imágenes */}
         <div className="perfumes-form__group full-width">
           <label>Subir imágenes (1 a 3)</label>
           <input
