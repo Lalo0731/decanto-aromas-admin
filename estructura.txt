@@ -35,6 +35,7 @@ decanto-aromas-admin/
 │   │       │   ├── Crear.tsx
 │   │       │   ├── Editar.tsx
 │   │       │   ├── Ver.tsx
+│   │       ├── PerfumesListView.tsx
 │   │
 │   ├── styles/
 │   │   ├── base/

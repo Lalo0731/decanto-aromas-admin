@@ -1,6 +1,16 @@
 import api from "../utils/api";
 
-export const getPerfumes = () => api.get("/perfumes");
+// export const getPerfumes = () => api.get("/perfumes");
+export const getPerfumes = (category?: string) => {
+  if(category === "new"){
+    return api.get("/perfumes?isNew=true");
+  } else if( category){
+    return api.get(`/perfumes?category=${category}`);
+  } else {
+    return api.get("/perfumes");
+  }
+};
+
 export const createPerfume = (payload: any) => api.post("/perfumes", payload);
 export const getPerfumeById = (id: number) => api.get(`/perfumes/${id}`);
 export const updatePerfume = (id: number, data: any) => api.patch(`/perfumes/${id}`, data);

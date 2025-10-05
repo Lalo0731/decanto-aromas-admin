@@ -107,8 +107,8 @@ const CrearPerfumeNuevo: React.FC = () => {
             onChange={(e) => setCategoria(e.target.value)}
           >
             <option value="">Selecciona una opción</option>
-            <option value="arabe">Árabes</option>
-            <option value="diseñador">Diseñador</option>
+            <option value="arabes">Árabes</option>
+            <option value="disenador">Diseñador</option>
             <option value="next">Nuevos</option>
           </select>
         </div>

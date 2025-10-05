@@ -5,11 +5,11 @@ import "../../../styles/pages/perfumesNew.scss"; // mismo estilo que crear
 import { getPerfumeById, updatePerfume, uploadPerfumeImages } from "../../../services/perfumes";
 import { showSuccess, showError, showWarning } from "../../../utils/alerts";
 
-const PerfumesEdit: React.FC = () => {
+const PerfumesDisenadorEdit: React.FC = () => {
   const { id } = useParams();
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [categoria, setCategoria] = useState("");
+  const [precioAntes, setPrecioAntes] = useState("");
   const [precio, setPrecio] = useState("");
   const [decantsUnicamente, setDecantsUnicamente] = useState(false);
   const [precioDecants, setPrecioDecants] = useState("");
@@ -27,12 +27,12 @@ const PerfumesEdit: React.FC = () => {
       if (id) {
         try {
           const res = await getPerfumeById(Number(id));
-          console.log("RES",res.data);
+          console.log("Data:",res.data);
           const p = res.data;
 
           setNombre(p.name || "");
           setDescripcion(p.description || "");
-          setCategoria(p.category || "");
+          setPrecioAntes(p.price?.toString() || "");
           setPrecio(p.price?.toString() || "");
           setDecantsUnicamente(p.isDecantOnly || false);
           setPrecioDecants(p.priceDecant?.toString() || "");
@@ -61,6 +61,10 @@ const PerfumesEdit: React.FC = () => {
         body: formData,
       });
 
+      if(!response.ok){
+        throw new Error("Error en la actualización de la imagen")
+      }
+
       const data = await response.json();
       const newImageFileName = data?.newImageUrl || file.name;
 
@@ -70,6 +74,7 @@ const PerfumesEdit: React.FC = () => {
       setImagenesExistentes(updatedImages);
 
       showSuccess("Imagen reemplazada con éxito");
+      // window.location.reload();
     } catch (err) {
       console.error(err);
       showError("Error al reemplazar imagen");
@@ -88,8 +93,9 @@ const PerfumesEdit: React.FC = () => {
       const payload : any = {
         name: nombre,
         description: descripcion,
-        category: categoria,
+        category: "disenador",
         price: Number(precio),
+        oldPrice: Number(precioAntes),
         isDecantOnly: decantsUnicamente,
         priceDecant: decants ? Number(precioDecants) : null,
         isDecant: decants,
@@ -128,7 +134,7 @@ const PerfumesEdit: React.FC = () => {
 
   return (
     <div className="perfumes-udpate">
-      <h2>Editar Perfume</h2>
+      <h2>Editar Perfume Diseñador</h2>
       <form className="perfumes-form" onSubmit={handleSubmit}>
         {/* Nombre */}
         <div className="perfumes-form__group">
@@ -142,15 +148,10 @@ const PerfumesEdit: React.FC = () => {
           <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
         </div>
 
-        {/* Categoría */}
+        {/* Precio Antes*/}
         <div className="perfumes-form__group">
-          <label>Categoría</label>
-          <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
-            <option value="">Selecciona una opción</option>
-            <option value="arabe">Árabes</option>
-            <option value="diseñador">Diseñador</option>
-            <option value="next">Nuevos</option>
-          </select>
+          <label>Precio Antes</label>
+          <input type="number" value={precioAntes} onChange={(e) => setPrecioAntes(e.target.value)} />
         </div>
 
         {/* Precio */}
@@ -296,4 +297,4 @@ const PerfumesEdit: React.FC = () => {
   );
 };
 
-export default PerfumesEdit;
+export default PerfumesDisenadorEdit;
