@@ -4,14 +4,17 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import AdminLayout from "./layouts/AdminLayout";
 import PrivateRoute from "./utils/PrivateRoute";
 import PerfumesNewCrear from "./pages/Perfumes/New/Crear";
-// import PerfumesView from "./pages/Perfumes/New/Ver";
+
 import PerfumesEdit from "./pages/Perfumes/New/Editar";
+
 import PerfumesDiseCrear from "./pages/Perfumes/Disenador/Crear";
-// import PerfumesDiseView from "./pages/Perfumes/Disenador/Ver";
 import PerfumesDiseEdit from "./pages/Perfumes/Disenador/Editar";
+
 import PerumesArabeCrear from './pages/Perfumes/Arabes/Crear';
-// import PerumesArabeView from './pages/Perfumes/Arabes/Ver';
 import PerumesArabeEdit from './pages/Perfumes/Arabes/Editar';
+
+import PerfumesNichoCrear from './pages/Perfumes/Nicho/Crear';
+import PerfumesNichoEdit from './pages/Perfumes/Nicho/Editar';
 
 import PerfumesListView from "./pages/Perfumes/PerfumesListView";
 
@@ -42,6 +45,10 @@ function App() {
         <Route path="/perfumes/arabes/crear" element={ <PerumesArabeCrear/> } />
         <Route path="/perfumes/arabes/ver" element={ <PerfumesListView category="arabes"/> } />
         <Route path="/perfumes/arabes/editar/:id" element={ <PerumesArabeEdit/> } />
+
+        <Route path="/perfumes/nicho/crear" element={ <PerfumesNichoCrear/> } />
+        <Route path="/perfumes/nicho/ver" element={ <PerfumesListView category="nicho"/> } />
+        <Route path="/perfumes/nicho/editar/:id" element={ <PerfumesNichoEdit/> } />
         </Route>
 
         {/* Redirección por defecto */}

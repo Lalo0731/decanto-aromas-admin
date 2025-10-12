@@ -116,6 +116,40 @@ const Sidebar: React.FC = () => {
         </li>
 
         <li className="sidebar__item">
+          <button 
+            className="sidebar__link sidebar__link--toggle"
+            onClick={() => setOpenDisenador(!openDisenador)}
+          >
+            Perfumes Nicho
+            <span className={`arrow ${openDisenador ? "open" : ""}`}>▾</span>
+          </button>
+          {openDisenador && (
+            <ul className="sidebar__submenu">
+              <li>
+                <NavLink 
+                  to="/perfumes/nicho/crear"
+                  className={({ isActive }) => 
+                  `sidebar__sublink ${isActive ? "sidebar__sublink--active" : ""}`
+                  }
+                >
+                  Crear
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/perfumes/nicho/ver"
+                  className={({ isActive }) =>
+                    `sidebar__sublink ${isActive ? "sidebar__sublink--active" : ""}`
+                  }
+                >
+                  Ver Perfumes
+                </NavLink>
+              </li>
+            </ul>
+          )}
+        </li>
+
+        <li className="sidebar__item">
           <NavLink to="/usuarios" className={({ isActive }) => `sidebar__link ${isActive ? "active" : ""}`}>Usuarios</NavLink>
         </li>
       </ul>

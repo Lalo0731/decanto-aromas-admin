@@ -90,6 +90,8 @@ const PerfumesListView: React.FC<PerfumesListProps> = ({ category }) => {
       ? "Listado de Perfumes Árabes"
       : category === "diseñador"
       ? "Listado de Perfumes de Diseñador"
+      : category === "nicho"
+      ? "Listado de Perfumes Nicho"
       : "Listado de Perfumes Nuevos";
 
   return (

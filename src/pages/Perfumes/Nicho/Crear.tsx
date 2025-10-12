@@ -4,10 +4,10 @@ import "../../../styles/pages/perfumesNew.scss";
 import { createPerfume, uploadPerfumeImages } from "../../../services/perfumes";
 import { showSuccess, showError, showWarning } from "../../../utils/alerts";
 
-const CrearPerfumeNuevo: React.FC = () => {
+const CrearPerfumeNicho: React.FC = () => {
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  // const [categoria, setCategoria] = useState("");
+  const [precioAntes, setPrecioAntes] = useState("");
   const [precio, setPrecio] = useState("");
   const [decantsUnicamente, setDecantsUnicamente] = useState(false);
   const [precioDecants, setPrecioDecants] = useState("");
@@ -31,7 +31,8 @@ const CrearPerfumeNuevo: React.FC = () => {
       const payload = {
         name: nombre,
         description: descripcion,
-        category: 'next',
+        category: "nicho",
+        oldPrice: Number(precioAntes),
         price: Number(precio),
         isDecantOnly: decantsUnicamente,
         priceDecant: decants ? Number(precioDecants) : null,
@@ -54,13 +55,13 @@ const CrearPerfumeNuevo: React.FC = () => {
         await uploadPerfumeImages(perfumeId, imagenes);
       }
 
-      console.log("Data img",response.data);
-      showSuccess("Perfume Nuevo creado con éxito");
+      console.log("data: ",response.data);
+      showSuccess("Perfume creado con éxito");
 
       // limpiar
       setNombre("");
       setDescripcion("");
-      // setCategoria("");
+      setPrecioAntes("");
       setPrecio("");
       setDecantsUnicamente(false);
       setPrecioDecants("");
@@ -71,14 +72,14 @@ const CrearPerfumeNuevo: React.FC = () => {
       setEspecialPara("");
       setImagenes(null);
     } catch (error: any){
-      console.log("Error al crear perfume nuevo", error);
-      showError("Error al crear el cliente");
+      console.log("Error al crear perfume", error);
+      showError("Error al crear perfume");
     }
   };
 
   return (
     <div className="perfumes-page">
-      <h2>Crear Perfume Nuevo</h2>
+      <h2>Crear Perfume Nicho</h2>
       <form className="perfumes-form" onSubmit={handleSubmit}>
         {/* Nombre */}
         <div className="perfumes-form__group">
@@ -99,23 +100,19 @@ const CrearPerfumeNuevo: React.FC = () => {
           />
         </div>
 
-        {/* Categoría */}
-        {/* <div className="perfumes-form__group">
-          <label>Categoría</label>
-          <select
-            value={categoria}
-            onChange={(e) => setCategoria(e.target.value)}
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="arabes">Árabes</option>
-            <option value="disenador">Diseñador</option>
-            <option value="next">Nuevos</option>
-          </select>
-        </div> */}
+        {/* Precio Antes*/}
+        <div className="perfumes-form__group">
+          <label>Precio Antes</label>
+          <input
+            type="number"
+            value={precioAntes}
+            onChange={(e) => setPrecioAntes(e.target.value)}
+          />
+        </div>
 
         {/* Precio */}
         <div className="perfumes-form__group">
-          <label>Precio</label>
+          <label>Precio Ahora</label>
           <input
             type="number"
             value={precio}
@@ -227,4 +224,4 @@ const CrearPerfumeNuevo: React.FC = () => {
   );
 };
 
-export default CrearPerfumeNuevo;
+export default CrearPerfumeNicho;
