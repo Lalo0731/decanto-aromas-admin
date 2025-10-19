@@ -23,19 +23,23 @@ decanto-aromas-admin/
 │   │   │   ├── Login.tsx
 │   │   ├── Dashboard/
 │   │   │   ├── Dashboard.tsx
-│   │   └── Perfumes/
-│   │       ├── New/
-│   │       │   ├── Crear.tsx
-│   │       │   ├── Ver.tsx
-│   │       │   ├── Editar.tsx
-│   │       ├── Arabes/
-│   │       │   ├── Crear.tsx
-│   │       │   ├── Ver.tsx
-│   │       ├── Disenador/
-│   │       │   ├── Crear.tsx
-│   │       │   ├── Editar.tsx
-│   │       │   ├── Ver.tsx
-│   │       ├── PerfumesListView.tsx
+│   │   ├── Perfumes/
+│   │   │   ├── New/
+│   │   │   │   ├── Crear.tsx
+│   │   │   │   ├── Ver.tsx
+│   │   │   │   ├── Editar.tsx
+│   │   │   ├── Arabes/
+│   │   │   │   ├── Crear.tsx
+│   │   │   │   ├── Ver.tsx
+│   │   │   ├── Disenador/
+│   │   │   │   ├── Crear.tsx
+│   │   │   │   ├── Editar.tsx
+│   │   │   │   ├── Ver.tsx
+│   │   │   ├── PerfumesListView.tsx
+│   │   ├── User/
+│   │           ├── Crear.tsx
+│   │           ├── Editar.tsx
+│   │           ├── Ver.tsx
 │   │
 │   ├── styles/
 │   │   ├── base/

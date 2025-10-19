@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showSuccess, showError, showSuccessExecute } from "../../utils/alerts";
+import {showError, showSuccessExecute } from "../../utils/alerts";
+import { loginUser } from "../../services/user";
+
 import "../../styles/pages/login.scss";
 
 const emailRegex = /^\S+@\S+\.\S+$/;
@@ -32,7 +34,7 @@ const Login: React.FC = () => {
   }
 
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if(!validate()){
@@ -43,22 +45,33 @@ const Login: React.FC = () => {
     setLoading(true);
     setErrors({})
 
-    // Simulación de llamada a API
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await loginUser(email, password);
 
-      if(email !== "admin.decanto@gmail.com" || password !== "admin123"){
-        showError("Credenciales inválidas")
-        return;
+      if(res.data && res.data.user){
+        const {user} = res.data;
+        console.log(user)
+        localStorage.setItem("auth", "true"); // marca como autenticado (simulado)
+        localStorage.setItem("user_id", user.id); 
+        localStorage.setItem("user_email", user.email);
+        localStorage.setItem("user_name", user.name);
+        localStorage.setItem("user_lastname", user.lastname);
+
+        showSuccessExecute("Inicio de sesión exitoso", "Bienvenido", () => {
+          navigate("/dashboard");
+        });
       }
+    } catch (error:any) {
+      console.error(error);
+      const msg = error.response?.data?.message || "Error al iniciar sesión. Verificar tus credenciales";
+      showError(msg);
+    } finally{
+      setLoading(false);
+    }
+  };
 
-      localStorage.setItem("auth", "true"); // marca como autenticado (simulado)
-      localStorage.setItem("user_email", email);
-
-      showSuccessExecute("Inicio de sesión exitoso", "Bienvenido", () => {
-        navigate("/dashboard");
-      });
-    }, 850);
+  const handleRegister = () => {
+    navigate(`/register`);
   };
 
   return(
@@ -87,8 +100,12 @@ const Login: React.FC = () => {
           <button type="submit" className={`login__button ${loading ? "login__button--disabled" : ""}`}>
             {loading ? "Ingresando..." : "Ingresar"}
           </button>
-          {errors.auth && <p className="login__error-message">{errors.auth}</p>}
+
         </form>
+        <button onClick={handleRegister} className={`login__button--register ${loading ? "login__button--disabled" : ""}`}>
+            {loading ? "Ingresando..." : "Registrarse"}
+          </button>
+          {errors.auth && <p className="login__error-message">{errors.auth}</p>}
       </div>
       <div className="login__image">
         <img src="/images/login1.jpg" alt="Decanto Aromas" />

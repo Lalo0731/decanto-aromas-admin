@@ -6,6 +6,7 @@ const Sidebar: React.FC = () => {
   const [openArabes, setOpenArabes] = useState(false);
   const [openDisenador, setOpenDisenador] = useState(false);
   const [openNew, setOpenNew] = useState(false);
+  const [openUser, setOpenUser] = useState(false);
   return (
     <aside className="sidebar">
       <ul className="sidebar__menu">
@@ -150,7 +151,37 @@ const Sidebar: React.FC = () => {
         </li>
 
         <li className="sidebar__item">
-          <NavLink to="/usuarios" className={({ isActive }) => `sidebar__link ${isActive ? "active" : ""}`}>Usuarios</NavLink>
+          <button 
+            className="sidebar__link sidebar__link--toggle"
+            onClick={() => setOpenUser(!openUser)}
+          >
+            Usuarios
+            <span className={`arrow ${openUser ? "open" : ""}`}>▾</span>
+          </button>
+          {openUser && (
+            <ul className="sidebar__submenu">
+              <li>
+                <NavLink 
+                  to="/user/crear"
+                  className={({ isActive }) => 
+                  `sidebar__sublink ${isActive ? "sidebar__sublink--active" : ""}`
+                  }
+                >
+                  Crear
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/user/ver"
+                  className={({ isActive }) =>
+                    `sidebar__sublink ${isActive ? "sidebar__sublink--active" : ""}`
+                  }
+                >
+                  Ver Usuarios
+                </NavLink>
+              </li>
+            </ul>
+          )}
         </li>
       </ul>
     </aside>
