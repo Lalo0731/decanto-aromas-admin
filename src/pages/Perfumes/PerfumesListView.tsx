@@ -111,18 +111,18 @@ const PerfumesListView: React.FC<PerfumesListProps> = ({ category }) => {
         <tbody>
           {perfumes.map((p) => (
             <tr key={p.id}>
-              <td>{p.id}</td>
-              <td>{p.name}</td>
-              <td>{p.category === "next" ? "Nuevo" : p.category === "disenador" ? "Diseñador" : "Árabe"}</td>
-              <td>${p.price}</td>
-              <td>
+              <td data-label="ID">{p.id}</td>
+              <td data-label="Nombre">{p.name}</td>
+              <td data-label="Categoria">{p.category === "next" ? "Nuevo" : p.category === "disenador" ? "Diseñador" : "Árabe"}</td>
+              <td data-label="Precio">${p.price}</td>
+              <td data-label="Disponible">
                 <span
                   className={`status ${p.available ? "active" : "inactive"}`}
                 >
                   {p.available ? "Sí" : "No"}
                 </span>
               </td>
-              <td>
+              <td data-label="Acciones">
                 <button
                   className="btn-action edit"
                   onClick={() => handleEdit(p.id)}

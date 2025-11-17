@@ -267,3 +267,105 @@
     }
   }
 }
+
+/* 📱 Responsive del formulario Crear Perfume */
+@media (max-width: 1024px) {
+  .perfumes-page {
+    padding: 1rem !important;
+  }
+}
+
+/* 📱 RESPONSIVE – Tabla se convierte en tarjetas */
+@media (max-width: 768px) {
+  .perfumes-view__table {
+    display: block;
+    overflow-x: auto;
+    border: none;
+  }
+
+  .perfumes-view__table thead {
+    display: none; // ocultamos headers
+  }
+
+  .perfumes-view__table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .perfumes-view__table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #eee;
+  }
+
+  .perfumes-view__table td {
+    padding: 0.5rem 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+
+  /* Etiquetas tipo card */
+  .perfumes-view__table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Acciones ocupa las 2 columnas */
+  .perfumes-view__table td:last-child {
+    grid-column: span 2;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .perfumes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .perfumes-form__group {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .perfumes-form__group.full-width {
+    width: 100% !important;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  textarea {
+    min-height: 90px;
+  }
+
+  .perfumes-form__actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .perfumes-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+
+}
